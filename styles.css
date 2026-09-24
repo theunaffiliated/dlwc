@@ -344,3 +344,49 @@
     .cursor { animation: none; }
     * { transition: none !important; }
   }
+
+
+  /* ---------- transit mark (DLWC) ---------- */
+  :root {
+    --line-d: #6F94CF;        /* D — blue */
+    --line-l: var(--ribbon);  /* L — the site's red */
+    --line-w: #DB6FA6;        /* W — magenta */
+    --line-c: #6FBB90;        /* C — green */
+  }
+  .tl { display: block; overflow: visible; }
+  .tl .tl-lines path { fill: none; stroke-width: 14; stroke-linejoin: round; }
+  .tl .tl-lines .tl-d { stroke: var(--line-d); } .tl .tl-lines .tl-l { stroke: var(--line-l); }
+  .tl .tl-lines .tl-w { stroke: var(--line-w); } .tl .tl-lines .tl-c { stroke: var(--line-c); }
+  .tl .tl-dot { fill: var(--ink-ground); stroke: var(--paper); stroke-width: 1.6; }
+  .tl .tl-bar { fill: none; stroke: var(--paper); stroke-width: 8; stroke-linecap: round; }
+  .tl .tl-bullets circle, .tl-bullet circle { stroke: var(--ink-ground); stroke-width: 3; }
+  .tl .tl-d, .tl-bullet .tl-d { fill: var(--line-d); } .tl .tl-l, .tl-bullet .tl-l { fill: var(--line-l); }
+  .tl .tl-w, .tl-bullet .tl-w { fill: var(--line-w); } .tl .tl-c, .tl-bullet .tl-c { fill: var(--line-c); }
+  .tl .tl-bullets text, .tl-bullet text {
+    font-family: var(--sans); font-weight: 600; font-size: 17px;
+    fill: var(--ink-ground); text-anchor: middle;
+  }
+  .tl-bullet circle { stroke: none; }
+  .tl-bullet text { font-size: 18px; }
+
+  /* masthead: four route bullets + wordmark */
+  .masthead { align-items: center; }
+  .masthead .mark { display: inline-flex; align-items: center; gap: 14px; }
+  .masthead .bullets { display: inline-flex; gap: 5px; }
+  .masthead .tl-bullet { width: 24px; height: 24px; }
+  .masthead .mark-text { padding-top: 2px; }
+
+  /* hero: the system diagram, edge to edge */
+  .hero .band { margin-top: clamp(28px, 4vh, 44px); width: 100%; }
+  .hero .band .tl-band {
+    width: 100%;
+    aspect-ratio: 1120 / 270;
+    min-height: 170px;          /* on narrow screens the diagram slices from the left; the terminals stay */
+    overflow: hidden;
+  }
+  .hero .lede { margin-top: clamp(28px, 4vh, 44px); }
+
+  @media (max-width: 720px) {
+    .masthead { align-items: flex-start; }
+    .masthead .tl-bullet { width: 22px; height: 22px; }
+  }
